@@ -2,6 +2,7 @@ pipeline {
     agent any
 
     stages {
+
         stage('Checkout') {
             steps {
                 checkout scm
@@ -15,18 +16,18 @@ pipeline {
                     removedJobAction: 'IGNORE',
                     removedViewAction: 'IGNORE',
                     lookupStrategy: 'JENKINS_ROOT'
-                
+                )
             }
         }
     }
 
-   post {
+    post {
         success {
-           echo 'All Job DSL files were processed successfully'
+            echo 'All Job DSL files were processed successfully'
         }
 
-       failure {
-            echo 'Failed to process the Job DSL files'        
+        failure {
+            echo 'Failed to process the Job DSL files'
         }
     }
 }
